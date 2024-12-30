@@ -17,7 +17,7 @@ jobs:
       # Update the counter using a script
       - name: Update counter
         run: |
-          COUNTER_FILE="counter.txt"
+          COUNTER_FILE="counter-2020.txt"
 
           if [ -f "$COUNTER_FILE" ]; then
             CURRENT_COUNT=$(grep -o '[0-9]*$' "$COUNTER_FILE")
@@ -35,8 +35,8 @@ jobs:
       # Commit and push changes
       - name: Commit and push changes
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add counter.txt
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add counter-2020.txt
           git commit -m "Update counter to $NEW_COUNT"
           git push
