@@ -4,6 +4,7 @@ on:
   schedule:
     # Run every day at midnight UTC
     - cron: "0 0 * * *"
+  workflow_dispatch: # for manual triggering
 
 jobs:
   update-counter:
